@@ -165,7 +165,26 @@ class SignInPage extends StatelessWidget {
 
     Widget buttonSignIn() {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: EdgeInsets.only(top: 30),
+        height: 50,
+        width: double.infinity,
+
+        child: TextButton(
+          onPressed: (){},
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)
+            )
+          ),
+          child: Text(
+            'Sign In',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: medium
+            ),
+          )
+        ),
       );
     }
 
@@ -181,7 +200,8 @@ class SignInPage extends StatelessWidget {
             children: [
               header(),
               emailInput(),
-              passwordInput()
+              passwordInput(),
+              buttonSignIn()
             ],
           ),
         ),
