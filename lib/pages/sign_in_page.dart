@@ -39,7 +39,7 @@ class SignInPage extends StatelessWidget {
 
     Widget emailInput() {
       return Container(
-        margin: EdgeInsets.only(top: 70),
+        margin: EdgeInsets.only(top: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -136,7 +136,7 @@ class SignInPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/images/icon_email.png',
+                      'assets/images/icon_password.png',
                       width: 17,
                     ),
                     SizedBox(
