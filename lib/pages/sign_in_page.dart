@@ -102,10 +102,11 @@ class SignInPage extends StatelessWidget {
     Widget passwordInput() {
       return Container(
         margin: EdgeInsets.only(top: 20),
+        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          
           children: [
-
             // Text Label
             Text(
               'Password',
@@ -145,6 +146,7 @@ class SignInPage extends StatelessWidget {
 
                     Expanded(
                       child: TextFormField(
+                        obscureText: true,
                         style: primaryTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Your password',
@@ -158,6 +160,12 @@ class SignInPage extends StatelessWidget {
             ),
           ],
         ),
+      );
+    }
+
+    Widget buttonSignIn() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
       );
     }
 
