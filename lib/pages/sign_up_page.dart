@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/theme.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class SignInPage extends StatelessWidget {
 
             // Text Title
             Text(
-              'Login',
+              'Sign Up',
               style: primaryTextStyle.copyWith(
                 fontSize: 24,
                 fontWeight: semiBold
@@ -26,7 +26,7 @@ class SignInPage extends StatelessWidget {
             // Text Description
             SizedBox(height: 2,),
             Text(
-              'Sign In to Continue',
+              'Sign Up and Happy Shoping',
               style: subtitleTextStyle.copyWith(
                 fontSize: 14,
                 fontWeight: regular
@@ -37,9 +37,133 @@ class SignInPage extends StatelessWidget {
       );
     }
 
-    Widget emailInput() {
+    Widget nameInput() {
       return Container(
         margin: EdgeInsets.only(top: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            // Text Label
+            Text(
+              'Full Name',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium
+              ),
+            ),
+
+            // Box Bayangan Untuk Jarak Bawah
+            SizedBox(
+              height: 12,
+            ),
+
+            // Input Field
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16
+              ),
+              decoration: BoxDecoration(
+                color: bgTwoColor,
+                borderRadius: BorderRadius.circular(12)
+              ),
+
+              // Isi Input Field
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/icon_fullname.png',
+                      width: 17,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your fullname',
+                          hintStyle: subtitleTextStyle
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget usernameInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+
+            // Text Label
+            Text(
+              'Username',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium
+              ),
+            ),
+
+            // Box Bayangan Untuk Jarak Bawah
+            SizedBox(
+              height: 12,
+            ),
+
+            // Input Field
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16
+              ),
+              decoration: BoxDecoration(
+                color: bgTwoColor,
+                borderRadius: BorderRadius.circular(12)
+              ),
+
+              // Isi Input Field
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/icon_username.png',
+                      width: 17,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your username',
+                          hintStyle: subtitleTextStyle
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget emailInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -200,16 +324,11 @@ class SignInPage extends StatelessWidget {
                 fontSize: 12,
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/sign-up');
-              },
-              child: Text(
-                'Sign Up',
-                style: purpleTextStyle.copyWith(
-                  fontSize: 12,
-                  fontWeight: medium
-                ),
+            Text(
+              'Sign Up',
+              style: purpleTextStyle.copyWith(
+                fontSize: 12,
+                fontWeight: medium
               ),
             )
           ],
@@ -229,6 +348,7 @@ class SignInPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               header(),
+              nameInput(),
               emailInput(),
               passwordInput(),
               buttonSignIn(),
