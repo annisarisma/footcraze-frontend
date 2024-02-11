@@ -287,7 +287,7 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
-    Widget buttonSignIn() {
+    Widget buttonSignUp() {
       return Container(
         margin: EdgeInsets.only(top: 30),
         height: 50,
@@ -302,7 +302,7 @@ class SignUpPage extends StatelessWidget {
             )
           ),
           child: Text(
-            'Sign In',
+            'Sign Up',
             style: primaryTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium
@@ -319,16 +319,21 @@ class SignUpPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have an account? ',
+              'Already have an account? ',
               style: subtitleTextStyle.copyWith(
                 fontSize: 12,
               ),
             ),
-            Text(
-              'Sign Up',
-              style: purpleTextStyle.copyWith(
-                fontSize: 12,
-                fontWeight: medium
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Sign In',
+                style: purpleTextStyle.copyWith(
+                  fontSize: 12,
+                  fontWeight: medium
+                ),
               ),
             )
           ],
@@ -352,7 +357,7 @@ class SignUpPage extends StatelessWidget {
               usernameInput(),
               emailInput(),
               passwordInput(),
-              buttonSignIn(),
+              buttonSignUp(),
               Spacer(),
               footer()
             ],
