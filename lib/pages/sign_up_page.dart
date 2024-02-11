@@ -349,6 +349,7 @@ class SignUpPage extends StatelessWidget {
             children: [
               header(),
               nameInput(),
+              usernameInput(),
               emailInput(),
               passwordInput(),
               buttonSignIn(),
