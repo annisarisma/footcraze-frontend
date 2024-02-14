@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/pages/home/home_page.dart';
 import 'package:footcraze_frontend/theme.dart';
 
 class MainPage extends StatefulWidget {
@@ -47,7 +48,9 @@ class _MainPageState extends State<MainPage> {
             currentIndex: currentIndex,
             onTap: (value) {
               print(value);
-              currentIndex = value;
+              setState(() {
+                currentIndex = value;
+              });
             },
             items: [
               BottomNavigationBarItem(
@@ -62,6 +65,7 @@ class _MainPageState extends State<MainPage> {
                 icon: Image.asset(
                   'assets/images/icon_chat.png',
                   width: 20,
+                  color: currentIndex == 1 ? primaryColor : Color(0xff808191),
                 ),
                 label: ''
               ),
@@ -69,6 +73,7 @@ class _MainPageState extends State<MainPage> {
                 icon: Image.asset(
                   'assets/images/icon_whislist.png',
                   width: 20,
+                  color: currentIndex == 2 ? primaryColor : Color(0xff808191),
                 ),
                 label: ''
               ),
@@ -76,6 +81,7 @@ class _MainPageState extends State<MainPage> {
                 icon: Image.asset(
                   'assets/images/icon_profile.png',
                   width: 18,
+                  color: currentIndex == 3 ? primaryColor : Color(0xff808191),
                 ),
                 label: ''
               ),
@@ -84,6 +90,7 @@ class _MainPageState extends State<MainPage> {
         ),
       );
     }
+
 
     return Scaffold(
       backgroundColor: bgOneColor,
