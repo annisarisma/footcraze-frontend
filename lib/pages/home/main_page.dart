@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/theme.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +44,17 @@ class MainPage extends StatelessWidget {
           child: BottomNavigationBar(
             backgroundColor: bgFourColor,
             type: BottomNavigationBarType.fixed,
+            currentIndex: currentIndex,
+            onTap: (value) {
+              print(value);
+              currentIndex = value;
+            },
             items: [
               BottomNavigationBarItem(
                 icon: Image.asset(
                   'assets/images/icon_home.png',
                   width: 21,
+                  color: currentIndex == 0 ? primaryColor : Color(0xff808191),
                 ),
                 label: ''
               ),
