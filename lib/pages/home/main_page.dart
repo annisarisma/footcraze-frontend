@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/pages/home/chat_page.dart';
 import 'package:footcraze_frontend/pages/home/home_page.dart';
 import 'package:footcraze_frontend/theme.dart';
 
@@ -54,34 +55,46 @@ class _MainPageState extends State<MainPage> {
             },
             items: [
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/icon_home.png',
-                  width: 21,
-                  color: currentIndex == 0 ? primaryColor : Color(0xff808191),
+                icon: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Image.asset(
+                    'assets/images/icon_home.png',
+                    width: 21,
+                    color: currentIndex == 0 ? primaryColor : Color(0xff808191),
+                  ),
                 ),
                 label: ''
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/icon_chat.png',
-                  width: 20,
-                  color: currentIndex == 1 ? primaryColor : Color(0xff808191),
+                icon: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Image.asset(
+                    'assets/images/icon_chat.png',
+                    width: 20,
+                    color: currentIndex == 1 ? primaryColor : Color(0xff808191),
+                  ),
                 ),
                 label: ''
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/icon_whislist.png',
-                  width: 20,
-                  color: currentIndex == 2 ? primaryColor : Color(0xff808191),
+                icon: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Image.asset(
+                    'assets/images/icon_whislist.png',
+                    width: 20,
+                    color: currentIndex == 2 ? primaryColor : Color(0xff808191),
+                  ),
                 ),
                 label: ''
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/images/icon_profile.png',
-                  width: 18,
-                  color: currentIndex == 3 ? primaryColor : Color(0xff808191),
+                icon: Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Image.asset(
+                    'assets/images/icon_profile.png',
+                    width: 18,
+                    color: currentIndex == 3 ? primaryColor : Color(0xff808191),
+                  ),
                 ),
                 label: ''
               ),
@@ -91,17 +104,26 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
+    Widget body() {
+      switch (currentIndex) {
+        case 0:
+          return HomePage();
+        case 1:
+          return ChatPage();
+        case 2:
+          return HomePage();
+        default:
+          return HomePage();
+      }
+    }
+
 
     return Scaffold(
       backgroundColor: bgOneColor,
       floatingActionButton: cartButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: bottomNav(),
-      body: Center(
-        child: Text(
-          'Main Page'
-        ),
-      ),
+      body: body(),
     );
   }
 }
