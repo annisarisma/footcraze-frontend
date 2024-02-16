@@ -80,17 +80,6 @@ class _MainPageState extends State<MainPage> {
                 icon: Container(
                   margin: EdgeInsets.only(top: 20),
                   child: Image.asset(
-                    'assets/images/icon_whislist.png',
-                    width: 20,
-                    color: currentIndex == 2 ? primaryColor : Color(0xff808191),
-                  ),
-                ),
-                label: ''
-              ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  child: Image.asset(
                     'assets/images/icon_profile.png',
                     width: 18,
                     color: currentIndex == 3 ? primaryColor : Color(0xff808191),
