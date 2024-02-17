@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/pages/home/chat_page.dart';
 import 'package:footcraze_frontend/pages/home/home_page.dart';
+import 'package:footcraze_frontend/pages/home/profile_page.dart';
+import 'package:footcraze_frontend/pages/home/wishlist_page.dart';
 import 'package:footcraze_frontend/theme.dart';
 
 class MainPage extends StatefulWidget {
@@ -111,9 +113,9 @@ class _MainPageState extends State<MainPage> {
         case 1:
           return ChatPage();
         case 2:
-          return HomePage();
+          return WishlistPage();
         default:
-          return HomePage();
+          return ProfilePage();
       }
     }
 
