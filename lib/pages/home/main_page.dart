@@ -106,19 +106,6 @@ class _MainPageState extends State<MainPage> {
       );
     }
 
-    Widget body() {
-      switch (currentIndex) {
-        case 0:
-          return HomePage();
-        case 1:
-          return ChatPage();
-        case 2:
-          return WishlistPage();
-        default:
-          return ProfilePage();
-      }
-    }
-
 
     return Scaffold(
       backgroundColor: bgOneColor,
