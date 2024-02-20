@@ -150,10 +150,23 @@ class HomePage extends StatelessWidget {
         ),
       );
     }
+    
+    Widget popularProductsTitle() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: defaultMargin,
+          right: defaultMargin,
+          left: defaultMargin
+        ),
+        
+      )
+    }
+
     return ListView(
       children: [
         header(),
-        categories()
+        categories(),
+        popularProductsTitle()
       ],
     );
   }
