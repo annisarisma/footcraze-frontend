@@ -158,8 +158,14 @@ class HomePage extends StatelessWidget {
           right: defaultMargin,
           left: defaultMargin
         ),
-        
-      )
+        child: Text(
+          'Popular Products',
+          style: primaryTextStyle.copyWith(
+            fontSize: 22,
+            fontWeight: semiBold
+          ),
+        ),
+      );
     }
 
     return ListView(
