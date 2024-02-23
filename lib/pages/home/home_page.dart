@@ -168,6 +168,27 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget popularProducts() {
+      return Container(
+        margin: EdgeInsets.only(top: 40),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SizedBox(
+                width: defaultMargin,
+              ),
+              Row(
+                children: [
+
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
