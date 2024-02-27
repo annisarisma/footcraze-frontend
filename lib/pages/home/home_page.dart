@@ -150,23 +150,6 @@ class HomePage extends StatelessWidget {
         ),
       );
     }
-    
-    Widget popularProductsTitle() {
-      return Container(
-        margin: EdgeInsets.only(
-          top: defaultMargin,
-          right: defaultMargin,
-          left: defaultMargin
-        ),
-        child: Text(
-          'Popular Products',
-          style: primaryTextStyle.copyWith(
-            fontSize: 22,
-            fontWeight: semiBold
-          ),
-        ),
-      );
-    }
 
     Widget popularProducts() {
       return Container(
