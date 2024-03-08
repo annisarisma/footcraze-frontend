@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/theme.dart';
+import 'package:footcraze_frontend/widget/product_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -180,7 +181,9 @@ class HomePage extends StatelessWidget {
               ),
               Row(
                 children: [
-
+                  ProductCard(),
+                  ProductCard(),
+                  ProductCard(),
                 ],
               )
             ],
@@ -193,7 +196,8 @@ class HomePage extends StatelessWidget {
       children: [
         header(),
         categories(),
-        popularProductsTitle()
+        popularProductsTitle(),
+        popularProducts()
       ],
     );
   }
