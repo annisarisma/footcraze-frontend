@@ -35,6 +35,25 @@ class ProductTile extends StatelessWidget {
                   style: secondaryTextStyle.copyWith(
                     fontSize: 12
                   ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  'Predator 20.3 Firm Ground',
+                  style: primaryTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: semiBold,
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  '\$68,47',
+                  style: priceTextStyle.copyWith(
+                    fontWeight: medium
+                  ),
                 )
               ],
             )
