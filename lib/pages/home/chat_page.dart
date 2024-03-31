@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/theme.dart';
+import 'package:footcraze_frontend/widget/chat_tile.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     Widget header() {
       return AppBar(
         backgroundColor: bgOneColor,
@@ -22,7 +24,7 @@ class ChatPage extends StatelessWidget {
       );
     }
 
-    Widget content() {
+    Widget emptyChat() {
       return Expanded(
         child: Container(
           width: double.infinity,
@@ -81,6 +83,23 @@ class ChatPage extends StatelessWidget {
               )
             ],
           ),
+        )
+      );
+    }
+
+    Widget content() {
+      return Expanded(
+        child: Container(
+          width: double.infinity,
+          color: bgThreeColor,
+          child: ListView(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin
+            ),
+            children: [
+              ChatTile()
+            ],
+          )
         )
       );
     }
