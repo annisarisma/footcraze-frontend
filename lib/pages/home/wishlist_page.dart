@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/theme.dart';
+import 'package:footcraze_frontend/widget/wishlist_card.dart';
 
 class WishlistPage extends StatelessWidget {
   const WishlistPage({super.key});
@@ -81,10 +82,29 @@ class WishlistPage extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return Expanded(
+        child: Container(
+          color: bgThreeColor,
+          child: ListView(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin
+            ),
+            children: [
+              WishlistCard(),
+              WishlistCard(),
+              WishlistCard(),
+            ],
+          ),
+        )
+      );
+    }
+
     return Column(
       children: [
         header(),
-        emptyWishlist()
+        // emptyWishlist()
+        content()
       ],
     );
   }
