@@ -46,9 +46,17 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Image.asset(
-                  'assets/images/button_exit.png',
-                  width: 20,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context, '/sign-in',
+                      (route) => false
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/images/button_exit.png',
+                    width: 20,
+                  ),
                 )
               ],
             ),
