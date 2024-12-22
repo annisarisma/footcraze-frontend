@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/pages/cart_page.dart';
 import 'package:footcraze_frontend/pages/detail_chat_page.dart';
 import 'package:footcraze_frontend/pages/edit_profile_page.dart';
 import 'package:footcraze_frontend/pages/home/main_page.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/detail-chat': (context) => DetailChatPage(),
         '/edit-profile': (context) => EditProfilePage(),
         '/product': (context) => ProductPage(),
+        '/cart': (context) => CartPage(),
       },
     );
   }

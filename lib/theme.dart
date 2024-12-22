@@ -20,6 +20,7 @@ Color blackColor = Color(0xff2E2E2E);
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(color: primaryTextColor);
 TextStyle secondaryTextStyle = GoogleFonts.poppins(color: secondaryTextColor);
+TextStyle alertTextStyle = GoogleFonts.poppins(color: alertColor);
 TextStyle subtitleTextStyle = GoogleFonts.poppins(color: subtitleTextColor);
 TextStyle purpleTextStyle = GoogleFonts.poppins(color: primaryColor);
 TextStyle priceTextStyle = GoogleFonts.poppins(color: priceColor);

@@ -14,7 +14,7 @@ class DetailChatPage extends StatelessWidget {
         toolbarHeight: 70,
         centerTitle: false,
         iconTheme: IconThemeData(
-          color: primaryTextColor, // Warna panah back button
+          color: primaryTextColor,
         ),
         title: Row(
           children: [
