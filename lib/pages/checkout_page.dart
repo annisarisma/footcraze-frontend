@@ -217,7 +217,7 @@ class CheckoutPage extends StatelessWidget {
                 ),
                 Divider(
                   thickness: 1,
-                  color: subtitleTextColor,
+                  color: Color(0xff2E3141),
                 ),
                 SizedBox(
                   height: 10,
@@ -240,6 +240,38 @@ class CheckoutPage extends StatelessWidget {
                   ],
                 )
               ],
+            ),
+          ),
+
+          // NOTE: Checkout Button
+          SizedBox(
+            height: defaultMargin,
+          ),
+          Divider(
+            thickness: 1,
+            color: Color(0xff2E3141),
+          ),
+          Container(
+            height: 50,
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(
+              vertical: defaultMargin
+            ),
+            child: TextButton(
+              onPressed: (){},
+              style: TextButton.styleFrom(
+                backgroundColor: primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                )
+              ),
+              child: Text(
+                'Checkout Now',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: semiBold
+                ),
+              ),
             ),
           )
         ],
