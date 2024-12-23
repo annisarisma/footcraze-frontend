@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/models/user_model.dart';
+import 'package:footcraze_frontend/providers/auth_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
 import 'package:footcraze_frontend/widget/product_card.dart';
 import 'package:footcraze_frontend/widget/product_tile.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel? user = authProvider.user;
 
     Widget header() {
       return Container(
@@ -23,14 +29,14 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Hello Alex',
+                    'Hello, ${user?.name}',
                     style: primaryTextStyle.copyWith(
                       fontSize: 24,
                       fontWeight: semiBold
                     ),
                   ),
                   Text(
-                    '@alexkeinn',
+                    '@${user?.username}',
                     style: secondaryTextStyle.copyWith(
                       fontSize: 16
                     ),
@@ -44,8 +50,8 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/image_profile.png',
+                  image: NetworkImage(
+                    user?.profilePhotoUrl ?? '',
                   ),
                 )
               ),
