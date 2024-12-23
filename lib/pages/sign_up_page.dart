@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
           SnackBar(
             backgroundColor: alertColor,
             content: Text(
-              'Has been removed from the Wishlist',
+              'Register has been failed',
               textAlign: TextAlign.center,
             )
           )
