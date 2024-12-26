@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/models/product_model.dart';
+import 'package:footcraze_frontend/providers/wishlist_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
+import 'package:provider/provider.dart';
 
 class WishlistCard extends StatelessWidget {
-  const WishlistCard({super.key});
+
+  final ProductModel product;
+  WishlistCard(this.product);
 
   @override
   Widget build(BuildContext context) {
+    WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
     return Container(
       margin: EdgeInsets.only(
         top: 20
@@ -37,21 +43,26 @@ class WishlistCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Terrex Urban Low',
+                  product.name!,
                   style: primaryTextStyle.copyWith(
                     fontWeight: semiBold
                   ),
                 ),
                 Text(
-                  '\$143,98',
+                  '\$${product.price}',
                   style: priceTextStyle,
                 )
               ],
             ),
           ),
-          Image.asset(
-            'assets/images/button_wishlist_blue.png',
-            width: 34,
+          GestureDetector(
+            onTap: (){
+              wishlistProvider.setProduct(product);
+            },
+            child: Image.asset(
+              'assets/images/button_wishlist_blue.png',
+              width: 34,
+            ),
           )
         ],
       ),

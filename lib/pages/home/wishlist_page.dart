@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/providers/wishlist_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
 import 'package:footcraze_frontend/widget/wishlist_card.dart';
+import 'package:provider/provider.dart';
 
 class WishlistPage extends StatelessWidget {
   const WishlistPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WishlistProvider wishlistProvider = Provider.of<WishlistProvider>(context);
 
     Widget header() {
       return AppBar(
@@ -90,11 +93,7 @@ class WishlistPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: defaultMargin
             ),
-            children: [
-              WishlistCard(),
-              WishlistCard(),
-              WishlistCard(),
-            ],
+            children: wishlistProvider.wishlist.map((product) => WishlistCard(product)).toList()
           ),
         )
       );
@@ -103,8 +102,7 @@ class WishlistPage extends StatelessWidget {
     return Column(
       children: [
         header(),
-        // emptyWishlist()
-        content()
+        wishlistProvider.wishlist.length == 0 ? emptyWishlist() : content()
       ],
     );
   }
