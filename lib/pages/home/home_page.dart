@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:footcraze_frontend/models/user_model.dart';
 import 'package:footcraze_frontend/providers/auth_provider.dart';
+import 'package:footcraze_frontend/providers/product_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
 import 'package:footcraze_frontend/widget/product_card.dart';
 import 'package:footcraze_frontend/widget/product_tile.dart';
@@ -14,6 +15,7 @@ class HomePage extends StatelessWidget {
 
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel? user = authProvider.user;
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
 
     Widget header() {
       return Container(
@@ -50,8 +52,8 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: NetworkImage(
-                    user?.profilePhotoUrl ?? '',
+                  image: AssetImage(
+                    'assets/images/image_profile.png'
                   ),
                 )
               ),
@@ -187,11 +189,7 @@ class HomePage extends StatelessWidget {
                 width: defaultMargin,
               ),
               Row(
-                children: [
-                  ProductCard(),
-                  ProductCard(),
-                  ProductCard(),
-                ],
+                children: productProvider.products.map((product) => ProductCard(product)).toList()
               )
             ],
           ),
@@ -222,12 +220,7 @@ class HomePage extends StatelessWidget {
           top: 14,
         ),
         child: Column(
-          children: [
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-          ],
+          children: productProvider.products.map((product) => ProductTile(product)).toList(),
         ),
       );
     }

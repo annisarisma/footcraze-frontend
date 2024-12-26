@@ -10,6 +10,8 @@ import 'package:footcraze_frontend/pages/splash_page.dart';
 import 'package:footcraze_frontend/pages/sign_in_page.dart';
 import 'package:footcraze_frontend/pages/sign_up_page.dart';
 import 'package:footcraze_frontend/providers/auth_provider.dart';
+import 'package:footcraze_frontend/providers/product_provider.dart';
+import 'package:footcraze_frontend/providers/wishlist_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -22,6 +24,12 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProductProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => WishlistProvider()
         )
       ],
       child: MaterialApp(
@@ -33,7 +41,6 @@ class MyApp extends StatelessWidget {
           '/home': (context) => MainPage(),
           '/detail-chat': (context) => DetailChatPage(),
           '/edit-profile': (context) => EditProfilePage(),
-          '/product': (context) => ProductPage(),
           '/cart': (context) => CartPage(),
           '/checkout': (context) => CheckoutPage(),
           '/checkout-success': (context) => CheckoutSuccessPage(),
