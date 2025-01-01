@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/providers/auth_provider.dart';
 import 'package:footcraze_frontend/providers/cart_provider.dart';
+import 'package:footcraze_frontend/providers/transaction_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
 import 'package:footcraze_frontend/widget/checkout_card.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +13,15 @@ class CheckoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     CartProvider cartProvider = Provider.of<CartProvider>(context);
+    TransactionProvider transactionProvider = Provider.of<TransactionProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleCheckout() async {
+      if (await transactionProvider.checkout(authProvider.user!.token!, cartProvider.carts, cartProvider.totalPrice())) {
+        cartProvider.carts = [];
+        Navigator.pushNamedAndRemoveUntil(context, '/checkout-success', (route) => false);
+      }
+    }
 
     AppBar header() {
       return AppBar(
@@ -263,9 +274,7 @@ class CheckoutPage extends StatelessWidget {
               vertical: defaultMargin
             ),
             child: TextButton(
-              onPressed: (){
-                Navigator.pushNamedAndRemoveUntil(context, '/checkout-success', (route) => false);
-              },
+              onPressed: handleCheckout,
               style: TextButton.styleFrom(
                 backgroundColor: primaryColor,
                 shape: RoundedRectangleBorder(
