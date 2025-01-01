@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:footcraze_frontend/providers/cart_provider.dart';
 import 'package:footcraze_frontend/theme.dart';
 import 'package:footcraze_frontend/widget/checkout_card.dart';
+import 'package:provider/provider.dart';
 
 class CheckoutPage extends StatelessWidget {
   const CheckoutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    
+
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     AppBar header() {
       return AppBar(
         backgroundColor: bgOneColor,
@@ -42,8 +46,9 @@ class CheckoutPage extends StatelessWidget {
                     fontWeight: medium
                   ),
                 ),
-                CheckoutCard(),
-                CheckoutCard(),
+                Column(
+                  children: cartProvider.carts.map((cart) => CheckoutCard(cart)).toList(),
+                )
               ],
             ),
           ),
@@ -165,7 +170,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '2 Items',
+                      '${cartProvider.totalItems()} Items',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium
                       ),
@@ -185,7 +190,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '\$287,96',
+                      '\$${cartProvider.totalPrice()}',
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium
                       ),
@@ -232,7 +237,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '\$287.96',
+                      '\$${cartProvider.totalPrice()}',
                       style: priceTextStyle.copyWith(
                         fontWeight: semiBold
                       ),
