@@ -40,12 +40,30 @@ class CartProvider with ChangeNotifier {
   }
 
   reduceQuantity(int id) {
-    if (_carts[id].quantity == 0) {
+    if (_carts[id].quantity == 1) {
       removeCart(id);
     } else {
       _carts[id].quantity = _carts[id].quantity!-1;
     }
     notifyListeners();
+  }
+
+  totalItems() {
+    int total = 0;
+    for(var item in _carts) {
+      total += item.quantity!;
+    }
+
+    return total;
+  }
+
+  totalPrice() {
+    double total = 0;
+    for(var item in _carts) {
+      total += item.quantity! * item.product!.price!;
+    }
+
+    return total;
   }
 
   productExist(ProductModel product) {
